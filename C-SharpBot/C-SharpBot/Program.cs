@@ -18,7 +18,9 @@ namespace C_SharpBot
 
         public async Task MainAsync()
         {
-            _client = new DiscordSocketClient();
+            var _config = new DiscordSocketConfig { MessageCacheSize = 100 };
+
+            _client = new DiscordSocketClient(_config);
 
             _client.Log += Log;
 
@@ -32,6 +34,12 @@ namespace C_SharpBot
             await _client.LoginAsync(TokenType.Bot, token);
             await _client.StartAsync();
 
+            _client.MessageUpdated += MessageUpdated;
+            _client.Ready += () =>
+            {
+                Console.WriteLine("Bot is connected!");
+                return Task.CompletedTask;
+            };
             // Block this task until the program is closed.
             await Task.Delay(-1);
         }
