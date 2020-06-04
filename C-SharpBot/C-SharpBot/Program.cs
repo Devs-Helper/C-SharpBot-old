@@ -24,7 +24,7 @@ namespace C_SharpBot
 
             _client.Log += Log;
 
-            var token = "NjM3MjE2MDg5OTgxMzIxMjE2.Xl0uXA.j7ZDwEaMOeIWPC0qynAcujBLf-E";
+            var token = "your token";
 
             // Some alternative options would be to keep your token in an Environment Variable or a standalone file.
             // var token = Environment.GetEnvironmentVariable("NameOfYourEnvironmentVariable");
